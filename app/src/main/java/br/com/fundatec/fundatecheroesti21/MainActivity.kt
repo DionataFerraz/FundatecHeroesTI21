@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import br.com.fundatec.core.visible
 import br.com.fundatec.fundatecheroesti21.presentation.MainViewModel
 
 class MainActivity : AppCompatActivity() {
@@ -32,11 +33,11 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.publicName.observe(this) { name ->
             tvHello.text = getString(R.string.hello, name)
-//            etName.setText(name)
         }
 
         viewModel.visibility.observe(this) { visibility ->
             tvHello.visibility = visibility
+            tvHello.visible()
         }
 
         viewModel.showToast.observe(this) {
