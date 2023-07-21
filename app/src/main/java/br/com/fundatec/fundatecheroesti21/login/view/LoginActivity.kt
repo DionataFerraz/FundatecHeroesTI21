@@ -3,13 +3,11 @@ package br.com.fundatec.fundatecheroesti21.login.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.viewModels
 import br.com.fundatec.core.hide
 import br.com.fundatec.core.show
 import br.com.fundatec.fundatecheroesti21.home.view.HomeActivity
 import br.com.fundatec.fundatecheroesti21.R
-import br.com.fundatec.fundatecheroesti21.database.FHDatabase
 import br.com.fundatec.fundatecheroesti21.databinding.ActivityLoginBinding
 import br.com.fundatec.fundatecheroesti21.login.presentation.LoginViewModel
 import br.com.fundatec.fundatecheroesti21.login.presentation.model.LoginViewState
@@ -20,16 +18,11 @@ class LoginActivity : AppCompatActivity() {
 
     private val viewModel: LoginViewModel by viewModels()
 
-    private val database: FHDatabase by lazy {
-        FHDatabase.getInstance()
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        Log.e("teste", database.userDao().getUser().toString())
         initializeObserver()
 
         binding.btLogin.setOnClickListener {

@@ -8,6 +8,7 @@ import br.com.fundatec.fundatecheroesti21.network.RetrofitNetworkClient
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.Response
+import java.util.Date
 
 class LoginRepository {
     private val database: FHDatabase by lazy {
@@ -41,6 +42,18 @@ class LoginRepository {
                     )
                 }
             }
+        }
+    }
+
+    suspend fun getCacheDate(): Date? {
+        return withContext(Dispatchers.IO) {
+            database.userDao().getUserDate()
+        }
+    }
+
+    suspend fun clearCache() {
+        return withContext(Dispatchers.IO) {
+            database.userDao().clearCache()
         }
     }
 

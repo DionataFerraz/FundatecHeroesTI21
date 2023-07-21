@@ -31,5 +31,13 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/home_tab_layout" />
 
+        <Button
+            android:id="@+id/bt_new_character"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Novo personagem"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
